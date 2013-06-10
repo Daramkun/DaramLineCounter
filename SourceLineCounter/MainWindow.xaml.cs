@@ -46,10 +46,8 @@ namespace SourceLineCounter
 			{
 				using ( FileStream fs = new FileStream ( "directories.txt", FileMode.Open ) )
 				{
-					using ( TextReader tr = new StreamReader ( fs ) )
-					{
-						textboxBrowse.Text = tr.ReadLine ();
-					}
+					TextReader tr = new StreamReader ( fs );
+					textboxBrowse.Text = tr.ReadLine ();
 				}
 			}
 
@@ -86,12 +84,10 @@ namespace SourceLineCounter
 			{
 				using ( FileStream fs = new FileStream ( "extensions.txt", FileMode.Open ) )
 				{
-					using ( TextReader tr = new StreamReader ( fs ) )
-					{
-						int count = int.Parse ( tr.ReadLine () );
-						for ( int i = 0; i < count; i++ )
-							extensionList.Add ( tr.ReadLine () );
-					}
+					TextReader tr = new StreamReader ( fs );
+					int count = int.Parse ( tr.ReadLine () );
+					for ( int i = 0; i < count; i++ )
+						extensionList.Add ( tr.ReadLine () );
 				}
 			}
 			comboExtensions.ItemsSource = extensionList;
@@ -109,10 +105,8 @@ namespace SourceLineCounter
 			{
 				using ( FileStream fs = new FileStream ( "ignore.txt", FileMode.Open ) )
 				{
-					using ( TextReader tr = new StreamReader ( fs ) )
-					{
-						textboxIgnore.Text = tr.ReadLine ();
-					}
+					TextReader tr = new StreamReader ( fs );
+					textboxIgnore.Text = tr.ReadLine ();
 				}
 			}
 
@@ -124,24 +118,22 @@ namespace SourceLineCounter
 		{
 			using ( FileStream fs = new FileStream ( "directories.txt", FileMode.OpenOrCreate ) )
 			{
-				using ( TextWriter tw = new StreamWriter ( fs ) )
-					tw.WriteLine ( textboxBrowse.Text );
+				TextWriter tw = new StreamWriter ( fs );
+				tw.WriteLine ( textboxBrowse.Text );
 			}
 
 			using ( FileStream fs = new FileStream ( "ignore.txt", FileMode.OpenOrCreate ) )
 			{
-				using ( TextWriter tw = new StreamWriter ( fs ) )
-					tw.WriteLine ( textboxIgnore.Text );
+				TextWriter tw = new StreamWriter ( fs );
+				tw.WriteLine ( textboxIgnore.Text );
 			}
 
 			using ( FileStream fs = new FileStream ( "extensions.txt", FileMode.OpenOrCreate ) )
 			{
-				using ( TextWriter tw = new StreamWriter ( fs ) )
-				{
-					tw.WriteLine ( extensionList.Count.ToString () );
-					foreach ( string extension in extensionList )
-						tw.WriteLine ( extension );
-				}
+				TextWriter tw = new StreamWriter ( fs );
+				tw.WriteLine ( extensionList.Count.ToString () );
+				foreach ( string extension in extensionList )
+					tw.WriteLine ( extension );
 			}
 		}
 
