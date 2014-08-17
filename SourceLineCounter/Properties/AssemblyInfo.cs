@@ -7,11 +7,11 @@ using System.Windows;
 // 어셈블리의 일반 정보는 다음 특성 집합을 통해 제어됩니다.
 // 어셈블리와 관련된 정보를 수정하려면
 // 이 특성 값을 변경하십시오.
-[assembly: AssemblyTitle ( "Source Line Counter" )]
+[assembly: AssemblyTitle ( "Daram Source Line Counter" )]
 [assembly: AssemblyDescription ( "" )]
 [assembly: AssemblyConfiguration ( "" )]
 [assembly: AssemblyCompany ( "Daramkun's NEST" )]
-[assembly: AssemblyProduct ( "Source Line Counter" )]
+[assembly: AssemblyProduct ( "Daram Source Line Counter" )]
 [assembly: AssemblyCopyright ( "Copyright © 2013 Daramkun All Rights Reserved" )]
 [assembly: AssemblyTrademark ( "" )]
 [assembly: AssemblyCulture ( "" )]

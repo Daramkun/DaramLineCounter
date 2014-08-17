@@ -54,12 +54,12 @@ namespace SourceLineCounter
 			if ( !File.Exists ( "extensions.txt" ) )
 			{
 				#region Extension List
-				extensionList.Add ( "All Files (*.*)" );
-				extensionList.Add ( "C (Include C Headers) (*.c, *.h)" );
-				extensionList.Add ( "C++ (Include C Headers) (*.cpp, *.h)" );
-				extensionList.Add ( "C++ (Include C++ Headers) (*.cpp, *.hpp)" );
-				extensionList.Add ( "C++ (Include C and C++ Headers) (*.cpp, *.h, *.hpp)" );
-				extensionList.Add ( "C/C++ (Include C and C++ Headers) (*.c, *.cpp, *.h, *.hpp)" );
+				extensionList.Add ( "모든 파일 (*.*)" );
+				extensionList.Add ( "C (C 헤더 포함) (*.c, *.h)" );
+				extensionList.Add ( "C++ (C 헤더 포함) (*.cpp, *.h)" );
+				extensionList.Add ( "C++ (C++ 헤더 포함) (*.cpp, *.hpp)" );
+				extensionList.Add ( "C++ (C 및 C++ 헤더 포함) (*.cpp, *.h, *.hpp)" );
+				extensionList.Add ( "C/C++ (C 및 C++ 헤더 포함) (*.c, *.cpp, *.h, *.hpp)" );
 				extensionList.Add ( "Visual Basic.NET (*.vb)" );
 				extensionList.Add ( "C# (*.cs)" );
 				extensionList.Add ( "Ruby (*.rb)" );
@@ -68,16 +68,16 @@ namespace SourceLineCounter
 				extensionList.Add ( "PHP (*.php, *.php3)" );
 				extensionList.Add ( "Java (*.java)" );
 				extensionList.Add ( "HTML (*.htm, *.html)" );
-				extensionList.Add ( "HTML and PHP (*.htm, *.html, *.php, *.php3)" );
-				extensionList.Add ( "HTML and PHP and Javascript (*.htm, *.html, *.php, *.php3, *.js)" );
-				extensionList.Add ( "HTML and JSP (*.htm, *.html, *.jsp)" );
-				extensionList.Add ( "HTML and JSP and Javascript (*.htm, *.html, *.jsp, *.js)" );
-				extensionList.Add ( "HTML and ASP (*.htm, *.html, *.asp)" );
-				extensionList.Add ( "HTML and ASP and Javascript (*.htm, *.html, *.asp)" );
-				extensionList.Add ( "HTML and ASP.NET (*.htm, *.html, *.aspx)" );
-				extensionList.Add ( "HTML and ASP.NET and Javascript (*.htm, *.html, *.aspx, *.js)" );
-				extensionList.Add ( "HTML and CGI (*.htm, *.html, *.cgi)" );
-				extensionList.Add ( "HTML and CGI and Javascript (*.htm, *.html, *.cgi, *.js)" );
+				extensionList.Add ( "HTML 및 PHP (*.htm, *.html, *.php, *.php3)" );
+				extensionList.Add ( "HTML 및 PHP 및 Javascript (*.htm, *.html, *.php, *.php3, *.js)" );
+				extensionList.Add ( "HTML 및 JSP (*.htm, *.html, *.jsp)" );
+				extensionList.Add ( "HTML 및 JSP 및 Javascript (*.htm, *.html, *.jsp, *.js)" );
+				extensionList.Add ( "HTML 및 ASP (*.htm, *.html, *.asp)" );
+				extensionList.Add ( "HTML 및 ASP 및 Javascript (*.htm, *.html, *.asp)" );
+				extensionList.Add ( "HTML 및 ASP.NET (*.htm, *.html, *.aspx)" );
+				extensionList.Add ( "HTML 및 ASP.NET 및 Javascript (*.htm, *.html, *.aspx, *.js)" );
+				extensionList.Add ( "HTML 및 CGI (*.htm, *.html, *.cgi)" );
+				extensionList.Add ( "HTML 및 CGI 및 Javascript (*.htm, *.html, *.cgi, *.js)" );
 				#endregion
 			}
 			else
@@ -120,12 +120,14 @@ namespace SourceLineCounter
 			{
 				TextWriter tw = new StreamWriter ( fs );
 				tw.WriteLine ( textboxBrowse.Text );
+				tw.Flush ();
 			}
 
 			using ( FileStream fs = new FileStream ( "ignore.txt", FileMode.OpenOrCreate ) )
 			{
 				TextWriter tw = new StreamWriter ( fs );
 				tw.WriteLine ( textboxIgnore.Text );
+				tw.Flush ();
 			}
 
 			using ( FileStream fs = new FileStream ( "extensions.txt", FileMode.OpenOrCreate ) )
@@ -134,6 +136,7 @@ namespace SourceLineCounter
 				tw.WriteLine ( extensionList.Count.ToString () );
 				foreach ( string extension in extensionList )
 					tw.WriteLine ( extension );
+				tw.Flush ();
 			}
 		}
 
