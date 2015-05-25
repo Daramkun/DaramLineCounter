@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,6 +42,10 @@ namespace SourceLineCounter
 		public MainWindow ()
 		{
 			InitializeComponent ();
+
+			Version currentVersion = Assembly.GetEntryAssembly ().GetName ().Version;
+			Title = string.Format ( "{0} - v{1}.{2}{3}0", Title,
+				currentVersion.Major, currentVersion.Minor, currentVersion.Build );
 
 			if ( File.Exists ( "directories.txt" ) )
 			{
@@ -142,10 +147,10 @@ namespace SourceLineCounter
 
 		private void buttonBrowse_Click ( object sender, RoutedEventArgs e )
 		{
-			System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog ();
-			dialog.SelectedPath = textboxBrowse.Text;
-			if ( dialog.ShowDialog () == System.Windows.Forms.DialogResult.Cancel ) return;
-			textboxBrowse.Text = dialog.SelectedPath;
+			WPFFolderBrowser.WPFFolderBrowserDialog dialog = new WPFFolderBrowser.WPFFolderBrowserDialog ();
+			dialog.InitialDirectory = textboxBrowse.Text;
+			if ( dialog.ShowDialog () == false ) return;
+			textboxBrowse.Text = dialog.FileName;
 		}
 
 		private void buttonAddExtension_Click ( object sender, RoutedEventArgs e )

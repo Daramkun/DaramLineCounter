@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Language="ko-kr"
-        Title="다람 소스 라인 계산기 - v2.011"
+        Title="다람 소스 라인 계산기"
         Height="480" Width="640"
         Closing="Window_Closing"
         Icon="Resources/ProgramIcon.ico"
@@ -110,6 +110,6 @@
         <TextBlock x:Name="totalCount" Text="0" Grid.Column="1" Grid.Row="4" Margin="4,7,4,7" TextAlignment="Right" />
         
         <!-- Count button -->
-        <Button x:Name="buttonCountStart" Content="계산 시작" Margin="4" Grid.Row="5" Grid.Column="1" Click="buttonCountStart_Click" />
+        <Button x:Name="buttonCountStart" Content="계산 시작" Margin="4" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="buttonCountStart_Click" />
     </Grid>
 </Window>

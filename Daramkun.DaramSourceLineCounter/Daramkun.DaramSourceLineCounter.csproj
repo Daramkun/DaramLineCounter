@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,21 +36,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\ProgramIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>DaramSourceLineCounter.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="TaskDialog">
-      <HintPath>..\packages\WPFTaskDialog.1.7.1\lib\net40-Client\TaskDialog.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -60,6 +64,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TaskDialog\CommandLink.xaml.cs">
+      <DependentUpon>CommandLink.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TaskDialog\Converters.cs" />
+    <Compile Include="TaskDialog\NativeMethods.cs" />
+    <Compile Include="TaskDialog\RelayCommand.cs" />
+    <Compile Include="TaskDialog\Resources.Designer.cs" />
+    <Compile Include="TaskDialog\SafeNativeMethods.cs" />
+    <Compile Include="TaskDialog\TaskDialog.cs" />
+    <Compile Include="TaskDialog\TaskDialog.xaml.cs">
+      <DependentUpon>TaskDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TaskDialog\TaskDialogEvents.cs" />
+    <Compile Include="TaskDialog\TaskDialogInterop.cs" />
+    <Compile Include="TaskDialog\TaskDialogResult.cs" />
+    <Compile Include="TaskDialog\TaskDialogTypes.cs" />
+    <Compile Include="TaskDialog\TaskDialogViewModel.cs" />
+    <Compile Include="TaskDialog\UnsafeNativeMethods.cs" />
+    <Compile Include="TaskDialog\VistaActiveTaskDialog.cs" />
+    <Compile Include="WPFFolderBrowser\interop\COMGuids.cs" />
+    <Compile Include="WPFFolderBrowser\interop\errorhelper.cs" />
+    <Compile Include="WPFFolderBrowser\interop\helpers.cs" />
+    <Compile Include="WPFFolderBrowser\interop\nativemethods.cs" />
+    <Compile Include="WPFFolderBrowser\interop\nativetaskdialogshowstate.cs" />
+    <Compile Include="WPFFolderBrowser\interop\shellcominterfaces.cs" />
+    <Compile Include="WPFFolderBrowser\interop\shellwrapperdefinitions.cs" />
+    <Compile Include="WPFFolderBrowser\library\WPFFolderBrowserDialog.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,6 +103,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TaskDialog\CommandLink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TaskDialog\ResourceDictionaries\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TaskDialog\TaskDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -92,7 +135,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="TaskDialog\Resources.resx" />
+    <None Include="DaramSourceLineCounter.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +148,20 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ProgramIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TaskDialog\Resources\cmdarr1.png" />
+    <Resource Include="TaskDialog\Resources\cmdarr2.png" />
+    <Resource Include="TaskDialog\Resources\cmdarr3.png" />
+    <Resource Include="TaskDialog\Resources\exparr-down1.bmp" />
+    <Resource Include="TaskDialog\Resources\exparr-down2.bmp" />
+    <Resource Include="TaskDialog\Resources\exparr-down3.bmp" />
+    <Resource Include="TaskDialog\Resources\exparr-up1.bmp" />
+    <Resource Include="TaskDialog\Resources\exparr-up2.bmp" />
+    <Resource Include="TaskDialog\Resources\exparr-up3.bmp" />
+    <Resource Include="TaskDialog\Resources\shield-16.png" />
+    <Resource Include="TaskDialog\Resources\shield-32.png" />
+    <Content Include="TaskDialog\TaskDialog.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
