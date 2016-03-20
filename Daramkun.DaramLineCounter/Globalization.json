@@ -1,0 +1,46 @@
+﻿{
+	"lang": [
+		{
+			"version": "3.0.0.0",
+			"target": "daram_line_counter",
+			"culture": "ko-KR",
+			"author": "Daramkun",
+			"contact": "daramkun@daram.pe.kr",
+			"contents": {
+				"count_destination": "대상 위치",
+				"gitignore": ".gitignore 파일",
+				"files": "파일 목록",
+				"total_lines": "선택 파일의 줄 수",
+				"lines": "줄",
+
+				"button_browse": "찾아보기",
+				"folder_gitignore": "<<대상 위치의 .gitignore 파일 사용>>",
+
+				"listview_filename": "파일명",
+				"listview_linecount": "줄 수",
+				"listview_path": "경로"
+			}
+		},
+		{
+			"version": "3.0.0.0",
+			"target": "daram_line_counter",
+			"culture": "en-US",
+			"author": "Daramkun",
+			"contact": "daramkun@daram.pe.kr",
+			"contents": {
+				"count_destination": "Destination",
+				"gitignore": ".gitignore File",
+				"files": "Files",
+				"total_lines": "Total Line of Selection",
+				"lines": "Lines",
+
+				"button_browse": "Browse...",
+				"folder_gitignore": "<<Use the .gitignore file in Destination>>",
+
+				"listview_filename": "Filename",
+				"listview_linecount": "Lines",
+				"listview_path": "Path"
+			}
+		}
+	]
+}

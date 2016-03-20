@@ -1,7 +1,7 @@
-SourceLineCounter
+Daram Line Counter
 =================
 
-Source Code Line Counter
+Text Files Line Counter
 
 License Details:
 http://daram.pe.kr/mit-license

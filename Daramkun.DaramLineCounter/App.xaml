@@ -1,5 +1,9 @@
-﻿<Application x:Class="SourceLineCounter.App"
+﻿<Application x:Class="Daramkun.DaramLineCounter.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Daramkun.DaramLineCounter"
              StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
 </Application>
